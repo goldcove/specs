@@ -240,11 +240,13 @@ standard.
 
 The Folders field lists all folders that will be synchronized
 over the current connection. Each folder has a list of participating
-Devices. Each device has an associated Flags field to indicate the sharing
-mode of that device for the folder in question. See the discussion on
-Sharing Modes.
+Devices. 
 
-The Device Flags field contains the following single bit flags:
+The Device ID is the SHA-256 (32 bytes) of the device X.509 certificate. See [How device IDs work] in the Syncthing documentation.
+
+Each device has an associated Flags field to indicate the sharing
+mode of that device for the folder in question. See the discussion on
+Sharing Modes. The Device Flags field contains the following single bit flags:
 
      0                   1                   2                   3
      0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -316,7 +318,7 @@ peers acting in a specific manner as a result of sent options.
     }
 
     struct Device {
-        string ID<>;
+        opaque ID<32>;
         unsigned int Flags;
         unsigned hyper MaxLocalVersion;
     }
@@ -721,3 +723,6 @@ Examples of Strong Cipher Suites
 * 0x0067 DHE-RSA-AES128-SHA256 (TLSv1.2 DH RSA AES(128) SHA256)
 * 0xC02F ECDHE-RSA-AES128-GCM-SHA256 (TLSv1.2 ECDH RSA AESGCM(128) AEAD)
 * 0xC027 ECDHE-RSA-AES128-SHA256 (TLSv1.2 ECDH RSA AES(128) SHA256)
+
+
+[How device IDs work]: https://github.com/syncthing/syncthing/wiki/Device-IDs
