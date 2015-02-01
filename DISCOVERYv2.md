@@ -52,7 +52,7 @@ Device ID
 ---------
 
 The device ID is the SHA-256 (32 bytes) of the device X.509 certificate.
-See [How device IDs work] in the Syncthing documentation.
+See [Device IDs] in the Syncthing documentation.
 
 Announcement packet
 -------------------
@@ -183,6 +183,6 @@ Design rationale
 At the beginning, also IPv4 was using multicast. It has been changed to
 broadcast after some bugs, especially on Android.
 
-[How device IDs work]: https://discourse.syncthing.net/t/how-device-ids-work/365
+[Device IDs]: https://github.com/syncthing/syncthing/wiki/Device-IDs
 [RFC4506]: http://tools.ietf.org/html/rfc4506
 
