@@ -242,7 +242,9 @@ The Folders field lists all folders that will be synchronized
 over the current connection. Each folder has a list of participating
 Devices. 
 
-The Device ID is the SHA-256 (32 bytes) of the device X.509 certificate. See [How device IDs work] in the Syncthing documentation.
+The Device ID is a 32 byte number that uniquely identifies the device.
+For instance, the reference implementation uses the SHA-256 of the 
+device X.509 certificate.
 
 Each device has an associated Flags field to indicate the sharing
 mode of that device for the folder in question. See the discussion on
@@ -723,6 +725,3 @@ Examples of Strong Cipher Suites
 * 0x0067 DHE-RSA-AES128-SHA256 (TLSv1.2 DH RSA AES(128) SHA256)
 * 0xC02F ECDHE-RSA-AES128-GCM-SHA256 (TLSv1.2 ECDH RSA AESGCM(128) AEAD)
 * 0xC027 ECDHE-RSA-AES128-SHA256 (TLSv1.2 ECDH RSA AES(128) SHA256)
-
-
-[How device IDs work]: https://github.com/syncthing/syncthing/wiki/Device-IDs
