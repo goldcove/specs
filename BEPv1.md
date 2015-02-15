@@ -240,11 +240,15 @@ standard.
 
 The Folders field lists all folders that will be synchronized
 over the current connection. Each folder has a list of participating
-Devices. Each device has an associated Flags field to indicate the sharing
-mode of that device for the folder in question. See the discussion on
-Sharing Modes.
+Devices. 
 
-The Device Flags field contains the following single bit flags:
+The Device ID is a 32 byte number that uniquely identifies the device.
+For instance, the reference implementation uses the SHA-256 of the 
+device X.509 certificate.
+
+Each device has an associated Flags field to indicate the sharing
+mode of that device for the folder in question. See the discussion on
+Sharing Modes. The Device Flags field contains the following single bit flags:
 
      0                   1                   2                   3
      0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -316,7 +320,7 @@ peers acting in a specific manner as a result of sent options.
     }
 
     struct Device {
-        string ID<>;
+        opaque ID<32>;
         unsigned int Flags;
         unsigned hyper MaxLocalVersion;
     }
